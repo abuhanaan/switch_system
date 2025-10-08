@@ -36,6 +36,12 @@
 			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
 
+    <dependency>
+      <artifactId>spring-dotenv</artifactId>
+      <groupId>me.paulschwarz</groupId>
+      <version>3.0.0</version>
+    </dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
