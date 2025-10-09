@@ -9,9 +9,9 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
     # Disable automatic table creation
-    jpa:
-      hibernate:
-        ddl-auto: update
+  jpa:
+    hibernate:
+      ddl-auto: update
 
       # Show SQL in logs
       show-sql: true
@@ -25,3 +25,7 @@ spring:
       org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 server:
   port: 8090
+
+jwt:
+  expiration-ms: 3600000
+  secret-key: fe72fbd571d2202e9ab3f04a62edc1d37773c4216db46d4fd64755d009fce2e5

@@ -4,11 +4,53 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40e80fb5-5620-43c9-9567-fc7fe62737c6" name="Changes" comment="" />
+    <list default="true" id="40e80fb5-5620-43c9-9567-fc7fe62737c6" name="Changes" comment="Refactorings">
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/config/TokenConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/controller/ErrorHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/ApiException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/AuthenticationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/BadRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/ConflictException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/InputException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/ProcessingException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/TimeoutException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/constants/AccountType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/constants/ErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/request/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/ApiResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/Error.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/LoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/SuccessResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/AuthenticationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/util/TimeUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/configurations/fintech_middleware.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/configurations/fintech_middleware.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -26,22 +68,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ConfigServerApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.DiscoveryApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.FintechMiddlewareApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Maven.config-server [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/adewunmi/projects/Java/interswitch/switch_system/discovery/pom.xml&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ConfigServerApplication.executor": "Debug",
+    "Application.DiscoveryApplication.executor": "Debug",
+    "Application.FintechMiddlewareApplication.executor": "Debug",
+    "Maven.config-server [clean,install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "base__impl",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/adewunmi/projects/Java/interswitch/switch_system/discovery/pom.xml"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.demo.models.entities" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/config-server" />
@@ -131,6 +176,19 @@
       <option name="presentableId" value="Default" />
       <updated>1759873772622</updated>
     </task>
+    <task id="LOCAL-00001" summary="Refactorings">
+      <option name="closed" value="true" />
+      <created>1759935936456</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1759935936456</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Refactorings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactorings" />
   </component>
 </project>
