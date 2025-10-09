@@ -5,38 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40e80fb5-5620-43c9-9567-fc7fe62737c6" name="Changes" comment="Refactorings">
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/config/TokenConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/controller/ErrorHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/ApiException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/AuthenticationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/BadRequestException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/ConflictException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/InputException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/NotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/ProcessingException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/exceptions/TimeoutException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/constants/AccountType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/constants/ErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/request/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/ApiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/Error.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/LoginResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/SuccessResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/BaseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/AuthenticationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/JwtService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/util/TimeUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/java/com/example/demo/ConfigServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/java/com/example/demo/ConfigServerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/configurations/fintech_middleware.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/configurations/fintech_middleware.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/test/java/com/example/demo/ConfigServerApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/test/java/com/example/demo/ConfigServerApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/discovery/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery/src/main/java/com/example/demo/DiscoveryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/discovery/src/main/java/com/example/demo/DiscoveryApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery/src/test/java/com/example/demo/DiscoveryApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/discovery/src/test/java/com/example/demo/DiscoveryApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/FintechMiddlewareApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/FintechMiddlewareApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/controller/ErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/controller/ErrorHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/LoginResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/SuccessResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/SuccessResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/test/java/com/example/demo/FintechMiddlewareApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/test/java/com/example/demo/FintechMiddlewareApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +45,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:abuhanaan/switch_system.git",
+    "accountId": "cb5c2eaf-8b6e-4602-ae43-6e1b6c4dffd0"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -78,7 +69,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "base__impl",
+    "git-widget-placeholder": "onboarding",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/adewunmi/projects/Java/interswitch/switch_system/discovery/pom.xml"
   }
@@ -165,6 +156,8 @@
         <item itemvalue="Application.FintechMiddlewareApplication" />
         <item itemvalue="Application.DiscoveryApplication" />
         <item itemvalue="Application.ConfigServerApplication" />
+        <item itemvalue="Application.FintechMiddlewareApplication" />
+        <item itemvalue="Application.DiscoveryApplication" />
       </list>
     </recent_temporary>
   </component>

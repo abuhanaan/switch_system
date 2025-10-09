@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "customers")
-public class Customer extends BaseEntity{
+public class Customer extends BaseEntity {
 
   @OneToOne
   @JoinColumn(name = "user_id", nullable = false)
