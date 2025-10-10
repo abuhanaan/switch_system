@@ -4,7 +4,6 @@ import com.example.demo.models.dto.request.LoginRequest;
 import com.example.demo.models.dto.response.SuccessResponse;
 import com.example.demo.models.entities.User;
 import com.example.demo.service.impl.AuthenticationService;
-import com.example.demo.service.impl.AuthenticationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

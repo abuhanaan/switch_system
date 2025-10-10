@@ -1,7 +1,6 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.exceptions.BadRequestException;
-import com.example.demo.exceptions.NotFoundException;
 import com.example.demo.models.dto.response.LoginResponse;
 import com.example.demo.models.dto.response.SuccessResponse;
 import com.example.demo.models.entities.User;
@@ -11,12 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AuthenticationServiceImpl implements AuthenticationService{
+public class AuthenticationServiceImpl implements AuthenticationService {
 
   @Autowired
   private UserRepository userRepository;

@@ -29,3 +29,7 @@ server:
 jwt:
   expiration-ms: 3600000
   secret-key: fe72fbd571d2202e9ab3f04a62edc1d37773c4216db46d4fd64755d009fce2e5
+
+encryption:
+  secret-key: 1234567890123456
+  algorithm: AES

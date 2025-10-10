@@ -4,26 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40e80fb5-5620-43c9-9567-fc7fe62737c6" name="Changes" comment="Code Cleanups">
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/controller/OnboardingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/constants/OnboardingStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/request/OnboardingRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/OnboardingResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/repository/AccountRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/repository/CustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/OnboardingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/AuthenticationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/OnboardingServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/util/PinCryptoUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/validator/InputValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="40e80fb5-5620-43c9-9567-fc7fe62737c6" name="Changes" comment="Onboarding And ccount Creation">
+      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/config/EncryptionConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/configurations/fintech_middleware.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/configurations/fintech_middleware.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/OnboardingResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/OnboardingResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/OnboardingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/OnboardingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/util/PinCryptoUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/util/PinCryptoUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,12 +181,21 @@
       <option name="project" value="LOCAL" />
       <updated>1759993243897</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Onboarding And ccount Creation">
+      <option name="closed" value="true" />
+      <created>1760089879740</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1760089879740</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactorings" />
     <MESSAGE value="Code Cleanups" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code Cleanups" />
+    <MESSAGE value="Onboarding And ccount Creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Onboarding And ccount Creation" />
   </component>
 </project>
