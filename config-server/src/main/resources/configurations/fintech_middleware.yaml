@@ -8,7 +8,7 @@ spring:
     password: ayinde_99
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-#liquidbase
+  #liquidbase
   liquibase:
     user: mustopha
     password: ayinde_99

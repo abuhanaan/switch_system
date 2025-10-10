@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "payouts")
-public class Payout extends BaseEntity{
+public class Payout extends BaseEntity {
 
   @Column(name = "type")
   private String type;

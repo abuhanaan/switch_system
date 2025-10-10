@@ -24,7 +24,7 @@ public class BillProductDto {
   private String description;
   private boolean active;
 
-  public static List<BillProductDto> fromEntities(List<BillProduct> entities){
+  public static List<BillProductDto> fromEntities(List<BillProduct> entities) {
     return entities.stream().map(e -> {
       return BillProductDto.builder()
           .id(e.getId())

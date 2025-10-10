@@ -18,12 +18,14 @@ public class UserServiceImpl implements UserDetailsService, UserService {
   @Override
   public UserDetails loadUserByUsername(String email) throws NotFoundException {
     return userRepository.findByEmail(email)
-        .orElseThrow(() -> new NotFoundException(String.format("User with email: %s does not exist", email)));
+        .orElseThrow(() -> new NotFoundException(
+            String.format("User with email: %s does not exist", email)));
   }
 
   @Override
   public User findUserByEmail(String email) throws NotFoundException {
     return userRepository.findByEmail(email)
-        .orElseThrow(() -> new NotFoundException(String.format("User with email: %s does not exist", email)));
+        .orElseThrow(() -> new NotFoundException(
+            String.format("User with email: %s does not exist", email)));
   }
 }

@@ -1,10 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.models.dto.request.BillsPaymentRequest;
-import com.example.demo.models.dto.request.VasProductDto;
 import com.example.demo.models.dto.response.ApiResponse;
-import com.example.demo.models.dto.response.BillsPaymentResponse;
-import com.example.demo.models.dto.response.SuccessResponse;
 import com.example.demo.models.entities.User;
 import com.example.demo.service.BillsPaymentService;
 import com.example.demo.service.UserService;
@@ -12,7 +9,6 @@ import com.example.demo.service.impl.JwtService;
 import com.example.demo.validator.InputValidator;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -57,7 +53,8 @@ public class BillsController {
     if (authHeader != null && authHeader.startsWith("Bearer ")) {
       String token = authHeader.substring(7);
       String email = jwtService.extractEmail(token);
-      user = userService.findUserByEmail(email); // or userRepository.findByEmail(email).orElse(null);
+      user = userService.findUserByEmail(
+          email); // or userRepository.findByEmail(email).orElse(null);
     }
     ApiResponse response = billsPaymentService.processPayment(request, user);
     return ResponseEntity.ok(response);

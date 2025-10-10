@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "payouts")
-public class Payin extends BaseEntity{
+public class Payin extends BaseEntity {
 
   @Column(name = "type")
   private PaymentType type;

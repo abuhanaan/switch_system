@@ -67,8 +67,8 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>org.liquibase</groupId>
       <artifactId>liquibase-core</artifactId>
+      <groupId>org.liquibase</groupId>
       <version>4.26.0</version>
     </dependency>
     <dependency>

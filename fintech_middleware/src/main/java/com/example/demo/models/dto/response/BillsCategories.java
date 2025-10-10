@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BillsCategories {
+
   private List<String> categories;
 
   public static BillsCategories getCategories() {

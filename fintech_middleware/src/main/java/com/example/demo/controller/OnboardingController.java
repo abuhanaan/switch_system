@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import com.example.demo.models.dto.request.OnboardingRequest;
 import com.example.demo.models.dto.response.ApiResponse;
-import com.example.demo.models.dto.response.SuccessResponse;
 import com.example.demo.service.OnboardingService;
 import com.example.demo.validator.InputValidator;
 import jakarta.validation.Valid;

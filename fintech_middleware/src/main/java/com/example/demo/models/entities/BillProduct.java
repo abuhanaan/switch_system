@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "bill_products")
-public class BillProduct extends BaseEntity{
+public class BillProduct extends BaseEntity {
 
   @Enumerated(EnumType.STRING)
   @Column(name = "category")

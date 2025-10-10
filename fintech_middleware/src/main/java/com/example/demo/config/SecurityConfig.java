@@ -19,14 +19,13 @@ public class SecurityConfig {
 
   @Autowired
   private UserServiceImpl userService;
+  @Autowired
+  private JwtAuthenticationFilter jwtAuthenticationFilter;
 
   @Bean
   public PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
   }
-
-  @Autowired
-  private JwtAuthenticationFilter jwtAuthenticationFilter;
 
   @Bean
   public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig)

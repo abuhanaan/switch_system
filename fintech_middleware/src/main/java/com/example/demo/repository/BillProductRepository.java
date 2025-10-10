@@ -10,5 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface BillProductRepository extends JpaRepository<BillProduct, Long> {
 
   List<BillProduct> findAllByCategory(VasCategory category);
+
   BillProduct findOneById(Long id);
 }

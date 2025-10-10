@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "bill_payments")
-public class BillsPayment extends BaseEntity{
+public class BillsPayment extends BaseEntity {
 
   @ManyToOne
   @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
