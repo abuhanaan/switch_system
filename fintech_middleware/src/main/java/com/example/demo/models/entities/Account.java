@@ -5,6 +5,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
@@ -22,12 +23,15 @@ import lombok.NoArgsConstructor;
 @Table(name = "accounts")
 public class Account extends BaseEntity {
 
-  @ManyToOne
-  @JoinColumn(name = "customer_id", nullable = false)
+  @OneToOne
+  @JoinColumn(name = "customer_id", referencedColumnName = "id")
   private Customer customer;
 
-  @Column(unique = true, nullable = false)
+  @Column(unique = true)
   private String accountNumber;
+
+  @Column(name = "transaction_pin")
+  private String transactionPin;
 
   @Column(nullable = false)
   private AccountType accountType; // e.g., SAVINGS, CURRENT

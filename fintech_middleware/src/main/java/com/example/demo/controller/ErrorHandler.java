@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.models.dto.response.Error;
 import com.example.demo.exceptions.AuthenticationException;
 import com.example.demo.exceptions.BadRequestException;
 import com.example.demo.exceptions.ConflictException;
@@ -8,6 +7,7 @@ import com.example.demo.exceptions.NotFoundException;
 import com.example.demo.exceptions.ProcessingException;
 import com.example.demo.exceptions.TimeoutException;
 import com.example.demo.models.constants.ErrorCode;
+import com.example.demo.models.dto.response.Error;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

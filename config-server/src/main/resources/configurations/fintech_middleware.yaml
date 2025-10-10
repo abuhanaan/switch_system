@@ -1,8 +1,8 @@
 spring:
   datasource:
-#    url: jdbc:mysql://${DB_URL}:${DB_PORT}/${MYSQL_DATABASE}
-#    username: ${MYSQL_USER}
-#    password: ${MYSQL_PASSWORD}
+    #    url: jdbc:mysql://${DB_URL}:${DB_PORT}/${MYSQL_DATABASE}
+    #    username: ${MYSQL_USER}
+    #    password: ${MYSQL_PASSWORD}
     url: jdbc:mysql://localhost:3306/fintech
     username: mustopha
     password: ayinde_99
