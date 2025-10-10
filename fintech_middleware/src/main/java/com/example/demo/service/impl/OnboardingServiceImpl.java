@@ -4,10 +4,12 @@ import com.example.demo.exceptions.ConflictException;
 import com.example.demo.exceptions.ProcessingException;
 import com.example.demo.models.constants.OnboardingStatus;
 import com.example.demo.models.dto.request.OnboardingRequest;
+import com.example.demo.models.dto.response.ApiResponse;
 import com.example.demo.models.dto.response.OnboardingResponse;
 import com.example.demo.models.dto.response.SuccessResponse;
 import com.example.demo.models.entities.Account;
 import com.example.demo.models.entities.Customer;
+import com.example.demo.models.entities.Payin;
 import com.example.demo.models.entities.User;
 import com.example.demo.repository.AccountRepository;
 import com.example.demo.repository.CustomerRepository;
@@ -15,6 +17,11 @@ import com.example.demo.repository.UserRepository;
 import com.example.demo.service.OnboardingService;
 import com.example.demo.util.PinCryptoUtil;
 import jakarta.transaction.Transactional;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +37,7 @@ public class OnboardingServiceImpl implements OnboardingService {
 
   @Transactional
   @Override
-  public SuccessResponse onboardUser(OnboardingRequest request) {
+  public ApiResponse onboardUser(OnboardingRequest request) {
     validateRequest(request);
     User newUser = authService.register(
         User.builder().password(request.getPassword()).email(request.getEmail()).build());
@@ -46,11 +53,13 @@ public class OnboardingServiceImpl implements OnboardingService {
           .customer(newCustomer)
           .accountType(request.getAccountType())
           .balance(request.getInitialDeposit())
+          .payouts(new ArrayList<>())
           .transactionPin(pinCryptoUtil.encrypt(request.getTransactionPin()))
           .build();
       accountRepository.save(account);
       String accountNumber = String.format("%010d", account.getId());
       account.setAccountNumber(accountNumber);
+      account.setPayins(new ArrayList<>());
       accountRepository.save(account);
       newCustomer.setAccount(account);
       return account;
@@ -58,6 +67,7 @@ public class OnboardingServiceImpl implements OnboardingService {
       throw new ProcessingException(e.getMessage());
     }
   }
+
 
   private Customer createCustomer(OnboardingRequest request, User newUser) {
     return customerRepository.save(Customer.builder()

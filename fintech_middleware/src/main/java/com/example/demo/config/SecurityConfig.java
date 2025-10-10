@@ -25,6 +25,9 @@ public class SecurityConfig {
     return new BCryptPasswordEncoder();
   }
 
+  @Autowired
+  private JwtAuthenticationFilter jwtAuthenticationFilter;
+
   @Bean
   public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig)
       throws Exception {
@@ -42,7 +45,7 @@ public class SecurityConfig {
             .anyRequest().authenticated()
         )
         .userDetailsService(userService)
-        .addFilterBefore(new JwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
+        .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
         .formLogin(login -> login.disable());
     return http.build();
   }

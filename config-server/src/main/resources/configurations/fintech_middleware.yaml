@@ -8,6 +8,14 @@ spring:
     password: ayinde_99
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+#liquidbase
+  liquibase:
+    user: mustopha
+    password: ayinde_99
+    url: jdbc:mysql://localhost:3306/fintech
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    change-log: classpath:db/changelog/changelog-master.xml
+
     # Disable automatic table creation
   jpa:
     hibernate:

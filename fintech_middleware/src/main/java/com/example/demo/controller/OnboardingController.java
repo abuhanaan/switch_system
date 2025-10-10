@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.models.dto.request.OnboardingRequest;
+import com.example.demo.models.dto.response.ApiResponse;
 import com.example.demo.models.dto.response.SuccessResponse;
 import com.example.demo.service.OnboardingService;
 import com.example.demo.validator.InputValidator;
@@ -22,10 +23,10 @@ public class OnboardingController {
   private final OnboardingService onboardingService;
 
   @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<SuccessResponse> onboard(@Valid @RequestBody OnboardingRequest request,
+  public ResponseEntity<ApiResponse> onboard(@Valid @RequestBody OnboardingRequest request,
       BindingResult bindingResult) {
     InputValidator.validate(bindingResult);
-    SuccessResponse response = onboardingService.onboardUser(request);
+    ApiResponse response = onboardingService.onboardUser(request);
     return ResponseEntity.ok(response);
   }
 }

@@ -4,6 +4,8 @@ import com.example.demo.models.constants.OnboardingStatus;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -23,7 +25,7 @@ import lombok.NoArgsConstructor;
 public class Customer extends BaseEntity {
 
   @OneToOne
-  @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+  @JoinColumn(name = "user_id", referencedColumnName = "user_id", columnDefinition = "CHAR(36)")
   private User user;
 
   @Column(name = "first_name")
@@ -41,6 +43,7 @@ public class Customer extends BaseEntity {
   @Column(name = "address")
   private String address;
 
+  @Enumerated(EnumType.STRING)
   @Column(name = "onboarding_status")
   private OnboardingStatus onboardingStatus;
 
