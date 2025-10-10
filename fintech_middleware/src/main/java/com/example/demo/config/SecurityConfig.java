@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import com.example.demo.service.impl.AuthenticationServiceImpl;
 import com.example.demo.service.impl.JwtAuthenticationFilter;
 import com.example.demo.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class SecurityConfig {
         .sessionManagement(
             session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/api/auth/**").permitAll()
+            .requestMatchers("/api/v1/auth/**", "/api/v1/onboarding").permitAll()
             .anyRequest().authenticated()
         )
         .userDetailsService(userService)
