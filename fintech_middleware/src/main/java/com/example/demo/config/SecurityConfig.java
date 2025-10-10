@@ -19,6 +19,8 @@ public class SecurityConfig {
 
   @Autowired
   private UserServiceImpl userService;
+  @Autowired
+  private JwtAuthenticationFilter jwtAuthenticationFilter;
 
   @Bean
   public PasswordEncoder passwordEncoder() {
@@ -42,7 +44,7 @@ public class SecurityConfig {
             .anyRequest().authenticated()
         )
         .userDetailsService(userService)
-        .addFilterBefore(new JwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
+        .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
         .formLogin(login -> login.disable());
     return http.build();
   }

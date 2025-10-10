@@ -30,7 +30,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
   public User register(User user) {
     user.setPassword(passwordEncoder.encode(user.getPassword()));
-    user.setUserId(UUID.randomUUID());
+    user.setUserId(UUID.randomUUID().toString());
     return userRepository.save(user);
   }
 

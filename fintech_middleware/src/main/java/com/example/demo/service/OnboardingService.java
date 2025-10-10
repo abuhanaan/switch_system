@@ -1,9 +1,9 @@
 package com.example.demo.service;
 
 import com.example.demo.models.dto.request.OnboardingRequest;
-import com.example.demo.models.dto.response.SuccessResponse;
+import com.example.demo.models.dto.response.ApiResponse;
 
 public interface OnboardingService {
 
-  SuccessResponse onboardUser(OnboardingRequest request);
+  ApiResponse onboardUser(OnboardingRequest request);
 }

@@ -4,13 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40e80fb5-5620-43c9-9567-fc7fe62737c6" name="Changes" comment="Onboarding And ccount Creation">
-      <change afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/config/EncryptionConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="40e80fb5-5620-43c9-9567-fc7fe62737c6" name="Changes" comment="Bills Payment">
       <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/configurations/fintech_middleware.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/configurations/fintech_middleware.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/OnboardingResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/OnboardingResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/controller/BillsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/controller/BillsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/controller/OnboardingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/controller/OnboardingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/request/BillsPaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/request/BillsPaymentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/BillProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/BillProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/BillsCategories.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/BillsCategories.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/BillsPaymentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/dto/response/BillsPaymentResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/BillProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/BillProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/BillsPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/BillsPayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/Payin.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/Payin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/Payout.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/Payout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/models/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/repository/BillProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/repository/BillProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/repository/BillsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/repository/BillsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/BillsPaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/BillsPaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/OnboardingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/OnboardingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/BillsPaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/BillsPaymentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/JwtAuthenticationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/OnboardingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/OnboardingServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/util/PinCryptoUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/util/PinCryptoUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fintech_middleware/src/main/java/com/example/demo/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +36,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -54,23 +70,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ConfigServerApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.DiscoveryApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.FintechMiddlewareApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Maven.config-server [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;onboarding&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/adewunmi/projects/Java/interswitch/switch_system/discovery/pom.xml&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ConfigServerApplication.executor": "Debug",
+    "Application.DiscoveryApplication.executor": "Debug",
+    "Application.FintechMiddlewareApplication.executor": "Debug",
+    "Maven.config-server [clean,install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "vas",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/adewunmi/projects/Java/interswitch/switch_system/discovery/pom.xml"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.demo.repository" />
+      <recent name="com.example.demo.models.constants" />
+      <recent name="com.example.demo.service" />
       <recent name="com.example.demo.models.dto.response" />
       <recent name="com.example.demo.models.entities" />
     </key>
@@ -189,13 +208,22 @@
       <option name="project" value="LOCAL" />
       <updated>1760089879740</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Bills Payment">
+      <option name="closed" value="true" />
+      <created>1760129020832</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760129020832</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactorings" />
     <MESSAGE value="Code Cleanups" />
     <MESSAGE value="Onboarding And ccount Creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Onboarding And ccount Creation" />
+    <MESSAGE value="Bills Payment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bills Payment" />
   </component>
 </project>
