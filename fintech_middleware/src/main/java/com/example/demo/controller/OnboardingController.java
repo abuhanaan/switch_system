@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.models.dto.request.OnboardingRequest;
-import com.example.demo.models.dto.response.OnboardingResponse;
 import com.example.demo.models.dto.response.SuccessResponse;
 import com.example.demo.service.OnboardingService;
 import com.example.demo.validator.InputValidator;
@@ -9,7 +8,6 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

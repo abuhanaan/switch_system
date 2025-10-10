@@ -1,6 +1,5 @@
 package com.example.demo.config;
 
-import com.example.demo.service.impl.AuthenticationServiceImpl;
 import com.example.demo.service.impl.JwtAuthenticationFilter;
 import com.example.demo.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
