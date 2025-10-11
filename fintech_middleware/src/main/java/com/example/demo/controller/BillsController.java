@@ -4,8 +4,7 @@ import com.example.demo.models.dto.request.BillsPaymentRequest;
 import com.example.demo.models.dto.response.ApiResponse;
 import com.example.demo.models.entities.User;
 import com.example.demo.service.BillsPaymentService;
-import com.example.demo.service.UserService;
-import com.example.demo.service.impl.JwtService;
+import com.example.demo.util.AuthUtil;
 import com.example.demo.validator.InputValidator;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -26,8 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BillsController {
 
   private final BillsPaymentService billsPaymentService;
-  private final JwtService jwtService;
-  private final UserService userService;
+  private final AuthUtil authUtil;
 
 //  @PostMapping
 //  public VasProductDto createVasProduct(@Valid @RequestBody VasProductDto vasProductDto) {
@@ -48,14 +46,7 @@ public class BillsController {
   public ResponseEntity<ApiResponse> payBill(@Valid @RequestBody BillsPaymentRequest request,
       BindingResult bindingResult, HttpServletRequest httpRequest) {
     InputValidator.validate(bindingResult);
-    String authHeader = httpRequest.getHeader("Authorization");
-    User user = null;
-    if (authHeader != null && authHeader.startsWith("Bearer ")) {
-      String token = authHeader.substring(7);
-      String email = jwtService.extractEmail(token);
-      user = userService.findUserByEmail(
-          email); // or userRepository.findByEmail(email).orElse(null);
-    }
+    User user = authUtil.getUserFromHttpRequest(httpRequest);
     ApiResponse response = billsPaymentService.processPayment(request, user);
     return ResponseEntity.ok(response);
   }

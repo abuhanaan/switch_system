@@ -1,7 +1,5 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.exceptions.BadRequestException;
-import com.example.demo.exceptions.ConflictException;
 import com.example.demo.exceptions.ProcessingException;
 import com.example.demo.models.constants.BillerEnum;
 import com.example.demo.models.constants.TransactionStatus;
@@ -20,6 +18,7 @@ import com.example.demo.repository.BillProductRepository;
 import com.example.demo.repository.BillsRepository;
 import com.example.demo.service.BillsPaymentService;
 import com.example.demo.util.PinCryptoUtil;
+import com.example.demo.validator.ValidationUtil;
 import jakarta.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -35,6 +34,7 @@ public class BillsPaymentServiceImpl implements BillsPaymentService {
   private final PinCryptoUtil pinCryptoUtil;
   private final BillsRepository billsRepository;
   private final AccountRepository accountRepository;
+  private final ValidationUtil validationUtil;
 
   @Override
   public ApiResponse getAllBillsCategory() {
@@ -45,7 +45,7 @@ public class BillsPaymentServiceImpl implements BillsPaymentService {
 
   @Override
   public ApiResponse getAllProductsByCategory(String category) {
-    validateCategory(category);
+    validationUtil.validateCategory(category);
     List<BillProduct> products = billProductRepository.findAllByCategory(
         VasCategory.valueOf(category.toUpperCase()));
     return SuccessResponse.buildSuccess(category + " Bills Products Fetched Successfully!!",
@@ -105,55 +105,57 @@ public class BillsPaymentServiceImpl implements BillsPaymentService {
   }
 
   private void validateRequest(BillsPaymentRequest request, Account account, BillProduct product) {
-    validateDuplicateTransaction(request.getTransactionReference());
-    validateTransactionPin(request.getTransactionPin(), account);
+    validationUtil.validateDuplicateTransaction(request.getTransactionReference());
+    validationUtil.validateTransactionPin(request.getTransactionPin(), account);
+    validationUtil.validateFields(product != null ? product.getAmount() :
+        request.getAmount(), "Amount cannot be null");
     if (request.getProductId() == null) {
-      validateCategory(request.getCategory());
-      validateBiller(request.getBiller());
+      validationUtil.validateCategory((request.getCategory()));
+      validationUtil.validateBiller(request.getBiller());
     }
-    validateAmountIsSufficient(product != null ? product.getAmount() : request.getAmount(),
-        account);
+    validationUtil.validateAmountIsSufficient(product != null ? product.getAmount() :
+        request.getAmount(), account);
   }
 
-  private void validateDuplicateTransaction(String transactionReference) {
-    BillsPayment billsPayment = billsRepository.findByTransactionReference(transactionReference);
-    if (billsPayment != null) {
-      throw new ConflictException("Duplicate Transaction");
-    }
-  }
-
-  private void validateTransactionPin(String transactionPin, Account account) {
-    try {
-      String pin = pinCryptoUtil.decrypt(account.getTransactionPin());
-      if (!pin.equals(transactionPin)) {
-        throw new BadRequestException("Transaction pin mismatch");
-      }
-    } catch (Exception e) {
-      throw new ProcessingException(e.getMessage());
-    }
-  }
-
-  private void validateAmountIsSufficient(BigDecimal amount, Account account) {
-    if (account.getBalance().compareTo(amount) < 0) {
-      throw new BadRequestException("Insufficient Balance");
-    }
-  }
-
-  private void validateCategory(String category) {
-    boolean isValid = Arrays.stream(VasCategory.values()).anyMatch(
-        c -> c.name().equalsIgnoreCase(category));
-    if (!isValid) {
-      throw new BadRequestException("Invalid Category, we currently support " + Arrays.toString(
-          VasCategory.values()));
-    }
-  }
-
-  private void validateBiller(String biller) {
-    boolean isValid = Arrays.stream(BillerEnum.values()).anyMatch(
-        c -> c.name().equalsIgnoreCase(biller));
-    if (!isValid) {
-      throw new BadRequestException("Invalid Category, we currently support " + Arrays.toString(
-          BillerEnum.values()));
-    }
-  }
+//  private void validateDuplicateTransaction(String transactionReference) {
+//    BillsPayment billsPayment = billsRepository.findByTransactionReference(transactionReference);
+//    if (billsPayment != null) {
+//      throw new ConflictException("Duplicate Transaction");
+//    }
+//  }
+//
+//  private void validateTransactionPin(String transactionPin, Account account) {
+//    try {
+//      String pin = pinCryptoUtil.decrypt(account.getTransactionPin());
+//      if (!pin.equals(transactionPin)) {
+//        throw new BadRequestException("Transaction pin mismatch");
+//      }
+//    } catch (Exception e) {
+//      throw new ProcessingException(e.getMessage());
+//    }
+//  }
+//
+//  private void validateAmountIsSufficient(BigDecimal amount, Account account) {
+//    if (account.getBalance().compareTo(amount) < 0) {
+//      throw new BadRequestException("Insufficient Balance");
+//    }
+//  }
+//
+//  private void validateCategory(String category) {
+//    boolean isValid = Arrays.stream(VasCategory.values()).anyMatch(
+//        c -> c.name().equalsIgnoreCase(category));
+//    if (!isValid) {
+//      throw new BadRequestException("Invalid Category, we currently support " + Arrays.toString(
+//          VasCategory.values()));
+//    }
+//  }
+//
+//  private void validateBiller(String biller) {
+//    boolean isValid = Arrays.stream(BillerEnum.values()).anyMatch(
+//        c -> c.name().equalsIgnoreCase(biller));
+//    if (!isValid) {
+//      throw new BadRequestException("Invalid Category, we currently support " + Arrays.toString(
+//          BillerEnum.values()));
+//    }
+//  }
 }

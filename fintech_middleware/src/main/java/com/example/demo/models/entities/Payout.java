@@ -1,5 +1,6 @@
 package com.example.demo.models.entities;
 
+import com.example.demo.models.constants.PaymentType;
 import com.example.demo.models.constants.TransactionStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,8 +25,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "payouts")
 public class Payout extends BaseEntity {
 
+  @Enumerated(EnumType.STRING)
   @Column(name = "type")
-  private String type;
+  private PaymentType type;
 
   @Column(name = "reference")
   private String reference;

@@ -10,7 +10,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
-import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,14 +22,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "payouts")
+@Table(name = "payins")
 public class Payin extends BaseEntity {
 
   @Column(name = "type")
   private PaymentType type;
 
   @Column(name = "reference")
-  private UUID reference;
+  private String reference;
+
+//  @Column(name = "webhook_id")
+//  private String webhookId; // for outbound payin
 
   @ManyToOne
   @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
