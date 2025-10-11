@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "payouts")
+@Table(name = "payins")
 public class Payin extends BaseEntity {
 
   @Column(name = "type")

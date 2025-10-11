@@ -2,6 +2,7 @@ package com.example.demo.models.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import java.math.BigDecimal;
 import lombok.Data;
 
@@ -19,5 +20,12 @@ public class TransferDto {
   private String narration;               // Transfer narration
 
   @NotBlank(message = "reference is required")
-  private String reference;                // Transaction reference
+  private String reference;               // Transaction reference
+
+  @NotNull(message = "Transaction PIN is required")
+  @Pattern(
+      regexp = "^\\d{4}$",
+      message = "Transaction PIN must be a 4-digit number"
+  )
+  private String transactionPin;
 }

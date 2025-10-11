@@ -22,8 +22,9 @@ public class TransferResponseDto {
   private BigDecimal amount;
   private String narration;
   private TransactionStatus transactionStatus; // e.g., SUCCESS, FAILED, PENDING
+  private BigDecimal accountBalance;
 
-  public static TransferResponseDto fromEntity(Payout payout) {
+  public static TransferResponseDto fromEntity(Payout payout, BigDecimal accountBalance) {
     return TransferResponseDto.builder()
         .message("Transfer processed")
         .reference(payout.getReference())
@@ -34,10 +35,11 @@ public class TransferResponseDto {
         .amount(payout.getAmount())
         .narration(payout.getNarration())
         .transactionStatus(payout.getStatus())
+        .accountBalance(accountBalance)
         .build();
   }
 
-  public static List<TransferResponseDto> fromEntities(List<Payout> entities) {
-    return entities.stream().map(TransferResponseDto::fromEntity).toList();
+  public static List<TransferResponseDto> fromEntities(List<Payout> entities, BigDecimal accountBalance) {
+    return entities.stream().map(entity -> fromEntity(entity, accountBalance)).toList();
   }
 }

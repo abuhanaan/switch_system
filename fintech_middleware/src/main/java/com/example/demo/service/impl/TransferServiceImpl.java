@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.exceptions.BadRequestException;
 import com.example.demo.models.constants.PaymentType;
 import com.example.demo.models.constants.TransactionStatus;
 import com.example.demo.models.dto.request.TransferDto;
@@ -19,6 +20,7 @@ import com.example.demo.repository.PayoutRepository;
 import com.example.demo.service.TransferService;
 import com.example.demo.validator.ValidationUtil;
 import jakarta.transaction.Transactional;
+import jakarta.validation.constraints.NotBlank;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -54,7 +56,7 @@ public class TransferServiceImpl implements TransferService {
       payout = processOutboundTransfer(request, account);
     }
     return SuccessResponse.buildSuccess("Transfer Request Processed Successfully",
-        TransferResponseDto.fromEntity(payout));
+        TransferResponseDto.fromEntity(payout, account.getBalance()));
   }
 
   private Payout processInternalTransfer(TransferDto request, Account account,
@@ -72,6 +74,7 @@ public class TransferServiceImpl implements TransferService {
   }
 
   private void setInternalBeneficiary(Payout payout, Account beneficiary) {
+    payout.setType(PaymentType.INTERNAL);
     payout.setBeneficiary(beneficiary);
     payout.setBeneficiaryName(
         beneficiary.getCustomer().getFirstName() + " " + beneficiary.getCustomer().getLastName());
@@ -80,7 +83,6 @@ public class TransferServiceImpl implements TransferService {
 
   private Payout setCommonPayoutProperties(TransferDto request, Account account) {
     return Payout.builder()
-        .type(PaymentType.INTERNAL)
         .reference(request.getReference())
         .account(account)
         .amount(request.getAmount())
@@ -105,8 +107,19 @@ public class TransferServiceImpl implements TransferService {
   }
 
   private void validateRequest(TransferDto request, Account account) {
+    ensureUserIsNotTransferingToThemselves(request.getBeneficiaryAccountNumber(), account);
+    validationUtil.validateFields(request.getTransactionPin(), "TransactionPin is required");
     validationUtil.validateDuplicateTransaction(request.getReference(), true);
     validationUtil.validateAmountIsSufficient(request.getAmount(), account);
+    validationUtil.validateTransactionPin(request.getTransactionPin(), account);
+  }
+
+  private void ensureUserIsNotTransferingToThemselves(String beneficiaryAccountNumber,
+      Account account) {
+    if (beneficiaryAccountNumber.equals(account.getAccountNumber())){
+      throw new BadRequestException(beneficiaryAccountNumber + " is your account number, "
+          + "you can only transfer to other account numbers");
+    }
   }
 
   private Payout processOutboundTransfer(TransferDto request, Account account) {
@@ -123,6 +136,7 @@ public class TransferServiceImpl implements TransferService {
   }
 
   private void setOutBoundBeneficiary(Payout payout, TransferDto request) {
+    payout.setType(PaymentType.OUTBOUND);
     payout.setBeneficiaryName(request.getBeneficiaryName());
     payout.setBeneficiaryAccountNumber(request.getBeneficiaryAccountNumber());
   }
