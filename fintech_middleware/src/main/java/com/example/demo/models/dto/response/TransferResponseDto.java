@@ -39,7 +39,8 @@ public class TransferResponseDto {
         .build();
   }
 
-  public static List<TransferResponseDto> fromEntities(List<Payout> entities, BigDecimal accountBalance) {
+  public static List<TransferResponseDto> fromEntities(List<Payout> entities,
+      BigDecimal accountBalance) {
     return entities.stream().map(entity -> fromEntity(entity, accountBalance)).toList();
   }
 }
