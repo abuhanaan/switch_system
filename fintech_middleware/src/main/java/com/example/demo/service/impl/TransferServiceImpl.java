@@ -20,7 +20,6 @@ import com.example.demo.repository.PayoutRepository;
 import com.example.demo.service.TransferService;
 import com.example.demo.validator.ValidationUtil;
 import jakarta.transaction.Transactional;
-import jakarta.validation.constraints.NotBlank;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -116,7 +115,7 @@ public class TransferServiceImpl implements TransferService {
 
   private void ensureUserIsNotTransferingToThemselves(String beneficiaryAccountNumber,
       Account account) {
-    if (beneficiaryAccountNumber.equals(account.getAccountNumber())){
+    if (beneficiaryAccountNumber.equals(account.getAccountNumber())) {
       throw new BadRequestException(beneficiaryAccountNumber + " is your account number, "
           + "you can only transfer to other account numbers");
     }
