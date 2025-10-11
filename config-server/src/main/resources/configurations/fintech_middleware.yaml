@@ -1,17 +1,25 @@
 spring:
   datasource:
-#    url: jdbc:mysql://${DB_URL}:${DB_PORT}/${MYSQL_DATABASE}
-#    username: ${MYSQL_USER}
-#    password: ${MYSQL_PASSWORD}
+    #    url: jdbc:mysql://${DB_URL}:${DB_PORT}/${MYSQL_DATABASE}
+    #    username: ${MYSQL_USER}
+    #    password: ${MYSQL_PASSWORD}
     url: jdbc:mysql://localhost:3306/fintech
     username: mustopha
     password: ayinde_99
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  #liquidbase
+  liquibase:
+    user: mustopha
+    password: ayinde_99
+    url: jdbc:mysql://localhost:3306/fintech
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    change-log: classpath:db/changelog/changelog-master.xml
+
     # Disable automatic table creation
-    jpa:
-      hibernate:
-        ddl-auto: update
+  jpa:
+    hibernate:
+      ddl-auto: update
 
       # Show SQL in logs
       show-sql: true
@@ -25,3 +33,11 @@ spring:
       org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 server:
   port: 8090
+
+jwt:
+  expiration-ms: 3600000
+  secret-key: fe72fbd571d2202e9ab3f04a62edc1d37773c4216db46d4fd64755d009fce2e5
+
+encryption:
+  secret-key: 1234567890123456
+  algorithm: AES
