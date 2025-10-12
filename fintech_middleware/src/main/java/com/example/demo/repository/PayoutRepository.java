@@ -10,5 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface PayoutRepository extends JpaRepository<Payout, Long> {
 
   Payout findByReference(String transactionReference);
+
   List<Payout> findTop5ByAccountOrderByCreatedAtDesc(Account account);
 }

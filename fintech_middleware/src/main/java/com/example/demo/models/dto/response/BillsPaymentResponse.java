@@ -3,7 +3,6 @@ package com.example.demo.models.dto.response;
 import com.example.demo.models.constants.BillerEnum;
 import com.example.demo.models.constants.TransactionStatus;
 import com.example.demo.models.constants.VasCategory;
-import com.example.demo.models.dto.request.BillsPaymentRequest;
 import com.example.demo.models.entities.BillsPayment;
 import java.math.BigDecimal;
 import java.util.List;

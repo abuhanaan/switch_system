@@ -17,7 +17,6 @@ import com.example.demo.repository.AccountRepository;
 import com.example.demo.repository.BillProductRepository;
 import com.example.demo.repository.BillsRepository;
 import com.example.demo.service.BillsPaymentService;
-import com.example.demo.util.PinCryptoUtil;
 import com.example.demo.validator.ValidationUtil;
 import jakarta.transaction.Transactional;
 import java.math.BigDecimal;
@@ -93,8 +92,10 @@ public class BillsPaymentServiceImpl implements BillsPaymentService {
         .transactionReference(request.getTransactionReference())
         .narration(request.getNarration())
         .product(product)
-        .biller(product != null ? product.getBiller() : BillerEnum.valueOf(request.getBiller().toUpperCase()))
-        .category(product != null ? product.getCategory() : VasCategory.valueOf(request.getCategory().toUpperCase()))
+        .biller(product != null ? product.getBiller()
+            : BillerEnum.valueOf(request.getBiller().toUpperCase()))
+        .category(product != null ? product.getCategory()
+            : VasCategory.valueOf(request.getCategory().toUpperCase()))
         .amount(product != null ? product.getAmount() : request.getAmount())
         .transactionReference(request.getTransactionReference())
         .status(TransactionStatus.SUCCESS)

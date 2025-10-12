@@ -7,6 +7,7 @@ import lombok.Data;
 
 @Data
 public class DashboardDto {
+
   private String firstName;
   private String lastName;
   private String email;
@@ -15,7 +16,7 @@ public class DashboardDto {
   private BigDecimal accountBalance;
   private RecentTransactions recentTransactions;
 
-  public static DashboardDto buildFromAccount(Account account){
+  public static DashboardDto buildFromAccount(Account account) {
     DashboardDto dto = new DashboardDto();
     dto.setFirstName(account.getCustomer().getFirstName());
     dto.setLastName(account.getCustomer().getLastName());

@@ -8,11 +8,9 @@ import com.example.demo.models.dto.response.RecentTransactions;
 import com.example.demo.models.dto.response.SuccessResponse;
 import com.example.demo.models.entities.Account;
 import com.example.demo.models.entities.BillsPayment;
-import com.example.demo.models.entities.Payin;
 import com.example.demo.models.entities.Payout;
 import com.example.demo.models.entities.User;
 import com.example.demo.repository.BillsRepository;
-import com.example.demo.repository.PayinRepository;
 import com.example.demo.repository.PayoutRepository;
 import com.example.demo.service.DashboardService;
 import java.util.List;
@@ -24,7 +22,7 @@ import org.springframework.stereotype.Service;
 public class DashboardServiceImpl implements DashboardService {
 
   private final PayoutRepository payoutRepository;
-//  private final PayinRepository payinRepository;
+  //  private final PayinRepository payinRepository;
   private final BillsRepository billsRepository;
 
   @Override

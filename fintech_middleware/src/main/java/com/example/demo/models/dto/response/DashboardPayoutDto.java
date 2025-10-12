@@ -27,7 +27,8 @@ public class DashboardPayoutDto {
       return DashboardPayoutDto.builder()
           .reference(p.getReference())
           .beneficiaryAccountNumber(p.getBeneficiaryAccountNumber())
-          .beneficiaryBankCode(p.getBeneficiaryBank() != null ? p.getBeneficiaryBank().getCode() : null)
+          .beneficiaryBankCode(
+              p.getBeneficiaryBank() != null ? p.getBeneficiaryBank().getCode() : null)
           .beneficiaryName(p.getBeneficiaryName())
           .amount(p.getAmount())
           .narration(p.getNarration())

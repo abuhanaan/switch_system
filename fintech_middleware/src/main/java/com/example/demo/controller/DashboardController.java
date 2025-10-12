@@ -21,7 +21,7 @@ public class DashboardController {
   private final DashboardService dashboardService;
 
   @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<ApiResponse> getDashboard(HttpServletRequest httpRequest){
+  public ResponseEntity<ApiResponse> getDashboard(HttpServletRequest httpRequest) {
     User user = authUtil.getUserFromHttpRequest(httpRequest);
     return ResponseEntity.ok(dashboardService.getDashboard(user));
   }

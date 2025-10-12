@@ -10,5 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface BillsRepository extends JpaRepository<BillsPayment, Long> {
 
   BillsPayment findByTransactionReference(String transactionReference);
+
   List<BillsPayment> findTop5ByAccountOrderByCreatedAtDesc(Account account);
 }
