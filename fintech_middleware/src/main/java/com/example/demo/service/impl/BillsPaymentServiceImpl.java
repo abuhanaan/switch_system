@@ -17,7 +17,6 @@ import com.example.demo.repository.AccountRepository;
 import com.example.demo.repository.BillProductRepository;
 import com.example.demo.repository.BillsRepository;
 import com.example.demo.service.BillsPaymentService;
-import com.example.demo.util.PinCryptoUtil;
 import com.example.demo.validator.ValidationUtil;
 import jakarta.transaction.Transactional;
 import java.math.BigDecimal;
@@ -31,7 +30,6 @@ import org.springframework.stereotype.Service;
 public class BillsPaymentServiceImpl implements BillsPaymentService {
 
   private final BillProductRepository billProductRepository;
-  private final PinCryptoUtil pinCryptoUtil;
   private final BillsRepository billsRepository;
   private final AccountRepository accountRepository;
   private final ValidationUtil validationUtil;
@@ -71,7 +69,7 @@ public class BillsPaymentServiceImpl implements BillsPaymentService {
     setAccountBalance(account, product, request.getAmount());
     accountRepository.save(account);
     return SuccessResponse.buildSuccess("Bills Processed Successfully",
-        BillsPaymentResponse.fromEntity(bill, request));
+        BillsPaymentResponse.fromEntity(bill));
   }
 
   private void setAccountBalance(Account account, BillProduct product, BigDecimal requestAmount) {
@@ -94,6 +92,10 @@ public class BillsPaymentServiceImpl implements BillsPaymentService {
         .transactionReference(request.getTransactionReference())
         .narration(request.getNarration())
         .product(product)
+        .biller(product != null ? product.getBiller()
+            : BillerEnum.valueOf(request.getBiller().toUpperCase()))
+        .category(product != null ? product.getCategory()
+            : VasCategory.valueOf(request.getCategory().toUpperCase()))
         .amount(product != null ? product.getAmount() : request.getAmount())
         .transactionReference(request.getTransactionReference())
         .status(TransactionStatus.SUCCESS)
