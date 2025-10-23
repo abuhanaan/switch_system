@@ -1,5 +1,6 @@
 package com.example.demo.validator;
 
+import com.example.demo.exceptions.AuthorizationException;
 import com.example.demo.exceptions.BadRequestException;
 import com.example.demo.exceptions.ConflictException;
 import com.example.demo.exceptions.ProcessingException;
@@ -7,6 +8,7 @@ import com.example.demo.models.constants.BillerEnum;
 import com.example.demo.models.constants.VasCategory;
 import com.example.demo.models.entities.Account;
 import com.example.demo.models.entities.BillsPayment;
+import com.example.demo.models.entities.Customer;
 import com.example.demo.models.entities.Payout;
 import com.example.demo.repository.BillsRepository;
 import com.example.demo.repository.PayoutRepository;
@@ -27,6 +29,12 @@ public class ValidationUtil {
   public <T> void validateFields(T param, String message) {
     if (param == null) {
       throw new BadRequestException(message);
+    }
+  }
+
+  public void validateCustomer(Customer customer){
+    if (!customer.isIdValidated()){
+      throw new AuthorizationException("Please Validate Your BVN and NIN");
     }
   }
 

@@ -1,8 +1,10 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.exceptions.BadRequestException;
 import com.example.demo.exceptions.ConflictException;
 import com.example.demo.exceptions.ProcessingException;
 import com.example.demo.models.constants.OnboardingStatus;
+import com.example.demo.models.dto.request.IdentityValidationRequest;
 import com.example.demo.models.dto.request.OnboardingRequest;
 import com.example.demo.models.dto.response.ApiResponse;
 import com.example.demo.models.dto.response.OnboardingResponse;
@@ -30,6 +32,18 @@ public class OnboardingServiceImpl implements OnboardingService {
   private final AuthenticationServiceImpl authService;
   private final PinCryptoUtil pinCryptoUtil;
 
+  @Override
+  public ApiResponse validateIdentity(User user, IdentityValidationRequest request) {
+    Customer customer = user.getCustomer();
+    if (customer.isIdValidated()){
+      return SuccessResponse.buildSuccess("Your Identity Is Previously Verified");
+    }
+    validateBvnAndNin(customer.getBvn(), customer.getNin(), request);
+    customer.setIdValidated(true);
+    customerRepository.save(customer);
+    return SuccessResponse.buildSuccess("Identity Validated Successfully!!!");
+  }
+
   @Transactional
   @Override
   public ApiResponse onboardUser(OnboardingRequest request) {
@@ -40,6 +54,18 @@ public class OnboardingServiceImpl implements OnboardingService {
     Account account = createAccount(request, newCustomer);
     return SuccessResponse.buildSuccess("Account Created Successfully!!!",
         OnboardingResponse.fromAccount(account));
+  }
+
+  private void validateBvnAndNin(String bvn, String nin, IdentityValidationRequest request) {
+    if (bvn == null || nin == null){
+      throw new ProcessingException("Missing BVN/NIN in Customer Profile");
+    }
+    if (!bvn.substring(bvn.length() -5).equals(request.getLastFiveDigitOfBvn())){
+      throw new BadRequestException("Wrong Last Five Digit of BVN");
+    }
+    if (!nin.substring(nin.length() -5).equals(request.getLastFiveDigitOfNin())){
+      throw new BadRequestException("Wrong Last Five Digit of NIN");
+    }
   }
 
   private Account createAccount(OnboardingRequest request, Customer newCustomer) {
@@ -69,6 +95,7 @@ public class OnboardingServiceImpl implements OnboardingService {
         .user(newUser)
         .nin(request.getNin())
         .bvn(request.getBvn())
+            .idValidated(false)
         .firstName(request.getFirstName())
         .lastName(request.getLastName())
         .address(request.getAddress())
