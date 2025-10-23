@@ -35,7 +35,8 @@ public class OnboardingController {
   }
 
   @PostMapping(path = "/validate-identity", produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<ApiResponse> validateIdentity(@Valid @RequestBody IdentityValidationRequest request,
+  public ResponseEntity<ApiResponse> validateIdentity(
+      @Valid @RequestBody IdentityValidationRequest request,
       BindingResult bindingResult, HttpServletRequest httpRequest) {
     User user = authUtil.getUserFromHttpRequest(httpRequest);
     InputValidator.validate(bindingResult);

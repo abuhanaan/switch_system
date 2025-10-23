@@ -32,8 +32,8 @@ public class ValidationUtil {
     }
   }
 
-  public void validateCustomer(Customer customer){
-    if (!customer.isIdValidated()){
+  public void validateCustomer(Customer customer) {
+    if (!customer.isIdValidated()) {
       throw new AuthorizationException("Please Validate Your BVN and NIN");
     }
   }

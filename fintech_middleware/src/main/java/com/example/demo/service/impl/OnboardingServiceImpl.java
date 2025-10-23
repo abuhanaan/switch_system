@@ -35,7 +35,7 @@ public class OnboardingServiceImpl implements OnboardingService {
   @Override
   public ApiResponse validateIdentity(User user, IdentityValidationRequest request) {
     Customer customer = user.getCustomer();
-    if (customer.isIdValidated()){
+    if (customer.isIdValidated()) {
       return SuccessResponse.buildSuccess("Your Identity Is Previously Verified");
     }
     validateBvnAndNin(customer.getBvn(), customer.getNin(), request);
@@ -57,13 +57,13 @@ public class OnboardingServiceImpl implements OnboardingService {
   }
 
   private void validateBvnAndNin(String bvn, String nin, IdentityValidationRequest request) {
-    if (bvn == null || nin == null){
+    if (bvn == null || nin == null) {
       throw new ProcessingException("Missing BVN/NIN in Customer Profile");
     }
-    if (!bvn.substring(bvn.length() -5).equals(request.getLastFiveDigitOfBvn())){
+    if (!bvn.substring(bvn.length() - 5).equals(request.getLastFiveDigitOfBvn())) {
       throw new BadRequestException("Wrong Last Five Digit of BVN");
     }
-    if (!nin.substring(nin.length() -5).equals(request.getLastFiveDigitOfNin())){
+    if (!nin.substring(nin.length() - 5).equals(request.getLastFiveDigitOfNin())) {
       throw new BadRequestException("Wrong Last Five Digit of NIN");
     }
   }
@@ -95,7 +95,7 @@ public class OnboardingServiceImpl implements OnboardingService {
         .user(newUser)
         .nin(request.getNin())
         .bvn(request.getBvn())
-            .idValidated(false)
+        .idValidated(false)
         .firstName(request.getFirstName())
         .lastName(request.getLastName())
         .address(request.getAddress())
