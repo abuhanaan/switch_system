@@ -1,31 +1,31 @@
 spring:
   cloud:
-    cloud:
-      gateway:
-        discovery:
-          locator:
-            enabled: true
-        routes:
-          - id: transfer
-            uri: lb:http://10.201.189.147:8090
-            predicates:
-              - Path=/api/v1/transfer/**
-          - id: auth
-            uri: lb://fintech_middleware
-            predicates:
-              - Path=/api/v1/auth/**
-          - id: bills
-            uri: lb://fintech_middleware
-            predicates:
-              - Path=/api/v1/bills/**
-          - id: onboarding
-            uri: lb://fintech_middleware
-            predicates:
-              - Path=/api/v1/onboarding/**
-
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: http://localhost:8761/eureka/
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: transfer
+          uri: lb://fintech-middleware
+          predicates:
+            - Path=/api/v1/transfer/**
+        - id: auth
+          uri: lb://fintech-middleware
+          predicates:
+            - Path=/api/v1/auth/**
+        - id: bills
+          uri: lb://fintech-middleware
+          predicates:
+            - Path=/api/v1/bills/**
+        - id: onboarding
+          uri: lb://fintech-middleware
+          predicates:
+            - Path=/api/v1/onboarding/**
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 server:
   port: 8222
