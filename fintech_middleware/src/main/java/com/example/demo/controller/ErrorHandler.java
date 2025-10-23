@@ -39,7 +39,7 @@ public class ErrorHandler {
         HttpStatus.UNAUTHORIZED);
   }
 
-  @ExceptionHandler(AuthenticationException.class)
+  @ExceptionHandler(AuthorizationException.class)
   public ResponseEntity<Error> handleUnauthorized(
       HttpServletRequest request, AuthorizationException e) {
     return new ResponseEntity<>(new Error(false, ErrorCode.UNAUTHORIZED.name(), e.getMessage()),
