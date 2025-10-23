@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.exceptions.AuthenticationException;
+import com.example.demo.exceptions.AuthorizationException;
 import com.example.demo.exceptions.BadRequestException;
 import com.example.demo.exceptions.ConflictException;
 import com.example.demo.exceptions.NotFoundException;
@@ -35,6 +36,13 @@ public class ErrorHandler {
   public ResponseEntity<Error> handleUnauthorized(
       HttpServletRequest request, AuthenticationException e) {
     return new ResponseEntity<>(new Error(false, ErrorCode.PERMISSION.name(), e.getMessage()),
+        HttpStatus.UNAUTHORIZED);
+  }
+
+  @ExceptionHandler(AuthorizationException.class)
+  public ResponseEntity<Error> handleUnauthorized(
+      HttpServletRequest request, AuthorizationException e) {
+    return new ResponseEntity<>(new Error(false, ErrorCode.UNAUTHORIZED.name(), e.getMessage()),
         HttpStatus.UNAUTHORIZED);
   }
 

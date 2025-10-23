@@ -24,4 +24,11 @@ public class SuccessResponse extends ApiResponse {
         .data(data)
         .build();
   }
+
+  public static SuccessResponse buildSuccess(String message) {
+    return SuccessResponse.builder()
+        .status(true)
+        .message(message)
+        .build();
+  }
 }

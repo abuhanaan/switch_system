@@ -44,6 +44,7 @@ public class TransferServiceImpl implements TransferService {
   @Transactional
   @Override
   public ApiResponse processTransfer(TransferDto request, User user) {
+    validationUtil.validateCustomer(user.getCustomer());
     Account account = user.getCustomer().getAccount();
     validateRequest(request, account);
     Account beneficiary = accountRepository.findByAccountNumber(
