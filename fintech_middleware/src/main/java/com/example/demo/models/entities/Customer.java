@@ -43,6 +43,9 @@ public class Customer extends BaseEntity {
   @Column(name = "address")
   private String address;
 
+  @Column(name = "id_validated", nullable = false)
+  private boolean idValidated;
+
   @Enumerated(EnumType.STRING)
   @Column(name = "onboarding_status")
   private OnboardingStatus onboardingStatus;

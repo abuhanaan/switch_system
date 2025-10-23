@@ -5,6 +5,7 @@ CREATE TABLE customers (
     last_name VARCHAR(100),
     bvn VARCHAR(11) NOT NULL,
     nin VARCHAR(20) NOT NULL,
+    id_validated BOOLEAN NOT NULL,
     address VARCHAR(255),
     onboarding_status VARCHAR(32),
     created_at DATETIME NOT NULL,

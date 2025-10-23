@@ -53,6 +53,7 @@ public class BillsPaymentServiceImpl implements BillsPaymentService {
   @Transactional
   @Override
   public ApiResponse processPayment(BillsPaymentRequest request, User user) {
+    validationUtil.validateCustomer(user.getCustomer());
     Account account = user.getCustomer().getAccount();
     BillProduct product =
         request.getProductId() != null ? getBillProduct(request.getProductId()) : null;
@@ -118,46 +119,4 @@ public class BillsPaymentServiceImpl implements BillsPaymentService {
     validationUtil.validateAmountIsSufficient(product != null ? product.getAmount() :
         request.getAmount(), account);
   }
-
-//  private void validateDuplicateTransaction(String transactionReference) {
-//    BillsPayment billsPayment = billsRepository.findByTransactionReference(transactionReference);
-//    if (billsPayment != null) {
-//      throw new ConflictException("Duplicate Transaction");
-//    }
-//  }
-//
-//  private void validateTransactionPin(String transactionPin, Account account) {
-//    try {
-//      String pin = pinCryptoUtil.decrypt(account.getTransactionPin());
-//      if (!pin.equals(transactionPin)) {
-//        throw new BadRequestException("Transaction pin mismatch");
-//      }
-//    } catch (Exception e) {
-//      throw new ProcessingException(e.getMessage());
-//    }
-//  }
-//
-//  private void validateAmountIsSufficient(BigDecimal amount, Account account) {
-//    if (account.getBalance().compareTo(amount) < 0) {
-//      throw new BadRequestException("Insufficient Balance");
-//    }
-//  }
-//
-//  private void validateCategory(String category) {
-//    boolean isValid = Arrays.stream(VasCategory.values()).anyMatch(
-//        c -> c.name().equalsIgnoreCase(category));
-//    if (!isValid) {
-//      throw new BadRequestException("Invalid Category, we currently support " + Arrays.toString(
-//          VasCategory.values()));
-//    }
-//  }
-//
-//  private void validateBiller(String biller) {
-//    boolean isValid = Arrays.stream(BillerEnum.values()).anyMatch(
-//        c -> c.name().equalsIgnoreCase(biller));
-//    if (!isValid) {
-//      throw new BadRequestException("Invalid Category, we currently support " + Arrays.toString(
-//          BillerEnum.values()));
-//    }
-//  }
 }
